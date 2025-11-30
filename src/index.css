@@ -24,16 +24,19 @@ body {
 
 /* ---------------- NAVIGATION ---------------- */
 nav {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 10px 20px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
+/* Brand */
 .nav__brand {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  gap: 10px;
 }
 
 .nav__brand img {
@@ -45,31 +48,36 @@ nav {
   color: var(--clr-blue);
   font-size: clamp(1.5em, 5vw, 2.5em);
   font-weight: 800;
-  margin-left: 10px;
 }
 
+/* Links */
 .nav__links {
   display: flex;
-  justify-content: center;
   align-items: center;
-  list-style: none;
+  justify-content: center;
   gap: 15px;
+  list-style: none;
+  flex-wrap: wrap;
 }
 
-.nav__links li a {
-  text-decoration: none;
-  color: var(--clr-black);
+.nav__links li .nav__link-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
   font-size: clamp(0.9em, 2vw, 1em);
+  font-weight: 600;
+  color: var(--clr-black);
+  transition: color 0.25s ease;
 }
 
-.nav__links li a:hover {
+.nav__links li .nav__link-btn:hover {
   color: var(--clr-blue);
 }
 
+/* Connect button */
 .nav__connect {
-  width: 175px;
-  max-width: 90%;
   height: 50px;
+  padding: 0 15px;
   background-color: var(--clr-blue);
   color: var(--clr-white);
   border: none;
@@ -286,7 +294,7 @@ header {
   cursor: default;
 }
 
-/* ---------------- MEDIA QUERIES ---------------- */
+/* ---------------- RESPONSIVE ---------------- */
 @media screen and (max-width: 1024px) {
   .header__title {
     font-size: clamp(1.4em, 4vw, 1.8em);
@@ -295,12 +303,20 @@ header {
 
 @media screen and (max-width: 768px) {
   nav {
-    grid-template-columns: 1fr auto;
-    padding: 10px 15px;
+    flex-wrap: wrap;
   }
 
   .nav__links {
-    display: none;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  .nav__connect {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
   }
 
   .header__search {
@@ -315,11 +331,14 @@ header {
 
 @media screen and (max-width: 480px) {
   .nav__brand h1 {
-    font-size: clamp(1em, 5vw, 1.3em);
+    font-size: clamp(1em, 5vw, 1.5em);
+  }
+
+  .nav__links li .nav__link-btn {
+    font-size: 0.9em;
   }
 
   .nav__connect {
-    width: 120px;
     font-size: 0.9em;
   }
 
